@@ -1,0 +1,1 @@
+SUBSYSTEM=="misc", KERNEL=="ipmi-kcs*", ACTION=="add", TAG+="systemd", ENV{SYSTEMD_WANTS}+="phosphor-kcsd@kcs$number.service"

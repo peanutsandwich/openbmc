@@ -1,0 +1,14 @@
+[Unit]
+Description=Phosphor IPMI KCS DBus Bridge for device /dev/ipmi-%i
+BindsTo=dev-ipmi\x2d%i.device
+After=dev-ipmi\x2d%i.device
+
+[Service]
+Restart=always
+ExecStart=/usr/bin/env kcsd /dev/ipmi-%i
+SyslogIdentifier=kcsd
+Type=dbus
+BusName=org.openbmc.HostIpmi.%i
+
+[Install]
+WantedBy={SYSTEMD_DEFAULT_TARGET}
